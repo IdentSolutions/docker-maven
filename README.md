@@ -1,6 +1,21 @@
 docker-maven
 ============
 
+# Note to Ident Engineering
+
+amazoncorretto-11 has been modified to include git in the image.
+The image is published @ identsolutions/maven:3.6.1-amazoncorretto-11-git
+
+To update maven/jdk, consider the following steps:
+1. See if the original git repository as updates
+2. Merge original git repository into this repo
+3. Add git to new image by modifying the Dockerfile
+4. cd into directory with the desired Dockerfile and run: docker build --tag maven:<change me 3.6.1>-amazoncorretto-<change me too 11>-git .
+5. tag the docker image: docker tag maven:<mvn version>-amazoncorretto-<jdk version>-git identsolutions/maven:<mvn version>-amazoncorretto-<jdk version>-git
+6. login into docker hub (docker id: identsolutions)
+7. push docker image to docker hub: docker push identsolutions/maven:<mvn version>-amazoncorretto-<jdk version>-git
+
+
 # Supported tags and respective Dockerfile links
 
 All images are published under [`csanchez/maven`](https://hub.docker.com/r/csanchez/maven) and the ones extending Docker official images also under [`maven`](https://hub.docker.com/_/maven).
